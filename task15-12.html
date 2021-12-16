@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>random function</title>
+    <style>
+        #outer{
+            height: 500px;
+            width: 300px;
+            margin: 200px auto;
+            border: 2px solid black;
+        }
+        #inner{
+            height: 100px;
+            width: 150px;
+            border: 2px solid black;
+            margin: 50px auto;
+        }
+        #txt{
+            margin-left: 50px;
+            width: 150px;
+            background: cadetblue;
+            color: black;
+            font-size: 18px;
+        }
+        #btn{
+            margin-left: 100px;
+            height: 40px;
+            width: 100px;
+            background: lime;
+            color: black;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body style="background:gray">
+    <h3>Random function task</h3>
+    <div id="outer">
+        <div id="inner"></div><br/><br/>
+        <input type="text" placeholder="color code" id="txt"><br/><br/>
+        <button  id="btn" onclick="demo1()">Set color</button>
+    </div>
+    
+
+    <script>
+
+        var char="0123456789abcdef"
+        var color="#";
+        for(var i=0;i<6;i++)
+        {
+            var rindex=Math.floor(Math.random()*char.length);
+            color+=char.charAt(rindex);
+        }
+        //alert(color)
+        var dv=document.getElementById("inner");
+        dv.style.background=color;
+        var t=document.getElementById("txt");
+        t.value=color;
+        t.style.background=color;
+    
+        function demo1(){
+            var bt=document.getElementById("outer")
+            bt.style.background=color;
+
+        }
+    
+   window.setInterval("demo()",2000)
+        
+    </script>
+</body>
+</html>
