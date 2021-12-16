@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>DIGITAL CLOCK</title>
+</head>
+<style>
+    body {
+        background: rgb(2, 2, 2);
+    }
+    
+    #outer {
+        height: 300px;
+        width: 800px;
+        background: none;
+        border: 1px solid black;
+        box-sizing: border-box;
+        margin: 200px auto;
+        margin-top: 100px;
+        margin-bottom: none;
+    }
+    
+    .h {
+        height: 300px;
+        width: 240px;
+        background: rgb(158, 158, 85);
+        border: 20px solid rgb(155, 133, 8);
+        color: rgb(24, 22, 22);
+        border-radius: 20px;
+        box-sizing: border-box;
+        float: left;
+        font-size: 70px;
+        margin-left: 20px;
+        text-align: center;
+        line-height: 300px;
+        text-align: center;
+    }
+    
+    .btn {
+        height: 50px;
+        width: 150px;
+        border-radius: 20px;
+        margin-left: 400px;
+        color: blanchedalmond;
+        font-size: 30px;
+    }
+    
+    h1 {
+        color: rgb(16, 142, 151);
+        font-size: 60px;
+    }
+</style>
+
+<body onload="demo()">
+    <center>
+        <h1>DIGITAL CLOCK</h1>
+    </center>
+    <div id="outer">
+        <div class="h" id="h">HH</div>
+        <div class="h" id="m">MM</div>
+        <div class="h" id="s">SS</div>
+
+    </div>
+
+    <script>
+        function demo() {
+            var s = document.getElementById("s")
+            var m = document.getElementById("m");
+            var h = document.getElementById("h")
+            var x = new Date()
+            status = "AM"
+            var hh = x.getHours()
+            var mm = x.getMinutes()
+            var ss = x.getSeconds()
+            if (hh > 12) {
+                hh = hh - 12;
+                status = "PM"
+
+            }
+            if (hh < 10) {
+                hh = "0" + hh
+            }
+            if (mm < 10) {
+                mm = "0" + mm
+            }
+            if (ss < 10) {
+                ss = "0" + ss
+            }
+
+            s.innerText = ss + status
+            m.innerText = mm
+            h.innerText = hh
+
+
+
+
+        }
+        window.setInterval(demo, 1000)
+    </script>
+
+
+</body>
+
+</html>
